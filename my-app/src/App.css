@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+#root {
+  height: 100%;
+}
+.login-container {
+  height: 100vh;
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper {
+  padding: 20px;
+  background-color: darkorange;
+  width: 80%;
+  height: 40%;
+}
+.login-wrapper > h2 {
+  text-align: center;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* display: block; */
+}
+.login-form > input {
+  width: 60%;
+  height: 40px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.login-form > button {
+  width: 20%;
+
+  height: 40px;
+}
+.login-form > label {
+  text-align: left;
+  display: block;
+  width: 60%;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.tasks-container {
+  background: linear-gradient(to bottom, #a3edff, #1ca4ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow: scroll; */
+}
+.tasks-wrapper {
+  background: white;
+  height: 70%;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.tasks-title {
+  font-size: 29px;
+  font-weight: 700;
+}
+.tasks-input-container > .todo-task {
+  display: flex;
+}
+
+.todo-task > input {
+  margin-top: 20px;
+  width: 400px;
+  height: 50px;
+  border: 1px solid gainsboro;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 10px;
+}
+.todo-task > input::placeholder {
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-weight: 500;
+  word-spacing: 2px;
+  font-size: 18px;
+}
+.todo-task > button {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+/* CSS */
+.button-24 {
+  background: darkorange;
+  border: 1px solid darkorange;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: darkorange;
+}
+
+.button-24:active {
+  opacity: 0.5;
+}
+.list-btn {
+  background: darkorange;
+  border: 1px solid darkorange;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1px;
+  max-height: 25px;
+  max-width: 70px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin: 5px 5px 0px 0px;
+}
+.list-btn:hover,
+.list-btn:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: darkorange;
+}
+
+.list-btn:active {
+  opacity: 0.5;
+}
+.danger {
+  background: red;
+  border: 1px solid red;
+}
+.edit {
+  background: green;
+  border: 1px solid green;
+}
+.task {
+  background: red;
+  padding: 10px;
+  margin-top: 10px;
+  background: rgb(228, 228, 228);
+  border-radius: 5px;
+}
