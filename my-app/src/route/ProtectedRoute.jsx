@@ -1,21 +1,27 @@
 import React,{useContext} from 'react'
-import { Route,Redirect } from 'react-router-dom'
+import { Route,Redirect,useHistory } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
 
 const ProtectedRoute = ({component: Component,...rest}) => {
-    const {userState:{isAuthen}} = useContext(AuthContext)
-    console.log(isAuthen)
-    return (
-        <Route {...rest} render={(props)=>{
-           if(isAuthen){
-                
-            return <Component {...rest}{...props}/>
-           }
-           else{
-               return <Redirect to={{pathname:"/login"}}/>
-           }
-        }}/>
+    const {token} = useContext(AuthContext)
+    return(
+      <Route
+      {...rest}
+      render={props=>{
+        if(token.length>0){
+          return <Component {...props}/>
+        }
+        if(token.length==0 || !token.length){
+          console.log("adadad")
+          return(
+            <Redirect
+              to={{
+                pathname:"/login"
+              }}/>
+          )
+        }
+      }}/>
     )
 }
 

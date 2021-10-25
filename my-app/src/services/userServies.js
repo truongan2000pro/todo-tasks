@@ -10,32 +10,32 @@ export async function getUsers() {
   }
 }
 
-export async function signIn(task) {
+export async function signIn(userInput) {
   try {
-    let data = await axios.post(apiUrl + "/login", task);
+    let data = await axios.post(apiUrl + "/login", userInput);
     return data.data;
   } catch (error) {
     console.log(error);
   }
 }
-export async function signUp(task) {
+export async function signUp(userInput) {
   try {
-    let data = await axios.post(apiUrl + "/register", task);
+    let data = await axios.post(apiUrl + "/register", userInput);
     return data.data;
   } catch (error) {
     console.log(error);
   }
 }
-export async function updateUser(id, task) {
+export async function updateUser(id, userInput) {
   try {
-    let data = await axios.put(apiUrl + "/" + id, task);
+    let data = await axios.put(apiUrl + "/" + id, userInput);
     return data.data;
   } catch (error) {
     console.log(error);
   }
 }
-export async function deleteUser(id) {
+export async function deleteUser(userInput) {
   try {
-    await axios.delete(apiUrl + "/" + id);
-  } catch (error) {}
+    await axios.delete(apiUrl + "/" + userInput);
+  } catch {}
 }

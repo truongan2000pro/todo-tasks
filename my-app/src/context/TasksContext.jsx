@@ -12,24 +12,30 @@ const TaskContextProvider = ({children})=>{
         data:[]
     }) 
     
-    async function getTasksData(){
-        const data = await getTasks()
-        dispatch({
-            type: GET_TASKS,
-            payload:data.data
-        })
-   
+    async function getTasksData(token){
+        const data = await getTasks(token)
+            dispatch({
+                type: GET_TASKS,
+                payload:data.data
+            })     
+        return data 
+        // console.log(tasksState.data)
+        // console.log(data.data)
 
+
+        // console.log(tasksState.data.length==data.data.length)
+        
+        
     }
-    async function addTaskData(task){
-        const data = await addTask(task)
+    async function addTaskData(task,token){
+        const data = await addTask(task,token)
         dispatch({
             type:POST_TASK,
             payload:data.data
         })
     }
-    async function removeTask(taskId){
-        await deleteTask(taskId)
+    async function removeTask(taskId,token){
+        await deleteTask(taskId,token)
         const data = tasksState.data.filter(task => task._id != taskId)
         dispatch({
             type:DELETE_TASK,
@@ -38,9 +44,8 @@ const TaskContextProvider = ({children})=>{
         })
     }
 
-    async function updateTaskData(id,content){
-        const data= await updateTask(id,content)
-        console.log(data)
+    async function updateTaskData(id,content,token){
+        const data= await updateTask(id,content,token)
         dispatch({
             type:UPDATE_TASK,
             payload:data.data

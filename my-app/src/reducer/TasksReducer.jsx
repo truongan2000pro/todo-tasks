@@ -15,7 +15,7 @@ export const TasksReducer = (state,action)=>{
             return state
     }
         case UPDATE_TASK:{
-            return  state
+            return state
             
         }
         default:

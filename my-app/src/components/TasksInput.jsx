@@ -1,14 +1,17 @@
 import React,{useState,useContext} from 'react'
 import { TaskContext } from '../context/TasksContext'
+import { AuthContext } from '../context/AuthContext';
 
 
 const TasksInput = () => {
-    const {addTaskData} = useContext(TaskContext)
+    const {addTaskData,getTasksData} = useContext(TaskContext)
+    const {token} =useContext(AuthContext)
     const [input,setInput] = useState('')
 
     const handleSubmit = e =>{
         e.preventDefault();
-        addTaskData({task:input})
+        addTaskData({task:input,token})
+        getTasksData(token)
 
         
     }

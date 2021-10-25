@@ -12,17 +12,16 @@ router.post("/login", async function (req, res) {
   try {
     const user = await User.findOne({
       username: req.body.username,
+      password: req.body.password,
     });
-
     if (!user) {
-      res.status(401).json({
+      return res.status(401).json({
         success: false,
       });
     }
     const token = jwt.sign({ user_id: user._id }, process.env.TOKEN_KEY);
 
     // save user token
-    user.token = token;
     user.password = null;
 
     res.status(200).json({
@@ -37,8 +36,16 @@ router.post("/login", async function (req, res) {
 router.post("/register", async function (req, res) {
   try {
     const user = await new User(req.body).save();
+    const token = jwt.sign({ user_id: user._id }, process.env.TOKEN_KEY);
+
+    // save user token
+    // user.token = token;
+    user.password = null;
+
     res.status(200).json({
       success: true,
+      user: user,
+      token,
     });
   } catch (err) {
     res.json({
